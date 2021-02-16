@@ -65,7 +65,10 @@ def _extract_tags(html):
                 tags.append(False)
                 return (tags)
             else:
-                tags.append(html[i:j + i + 1])
+                if "a " == html[i + 1: i + 4]:
+                    tags.append("<a>")
+                else:
+                    tags.append(html[i:j + i + 1])
                 i = i + j + 1
         else:
             i += 1
